@@ -12,9 +12,11 @@ int main() {
 	std::uniform_int_distribution<> distr(1, 100);
 	int x = distr(gen);
 	
+	int guesses{0};
 	int guess{0};
 	std::cout << "Guess ... ";
 	while (guess != x) {
+		guesses ++;
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 		std::cin >> guess;
 		if (guess > x) {
@@ -25,7 +27,7 @@ int main() {
 	}
 	
 	std::cout << "You did it!!\n";
-
+	std::cout << "It took you " << guesses << " tries.";
 	//for (int i = 0; i < 5; i++) {
 	//	std::cout << << i;
 	//}
